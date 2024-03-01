@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1016858913249",
+    "firebase_url": "https://sudoku-flutter-firebase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "sudoku-flutter-firebase",
+    "storage_bucket": "sudoku-flutter-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016858913249:android:5b91b046f8c0213eb40aa0",
+        "android_client_info": {
+          "package_name": "com.example.sudoku_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016858913249-kb5ausli0joqtanh1nas3bffi0fqntsu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sudoku_flutter",
+            "certificate_hash": "f58953e3e8cbc1077813fe1acffa6521e49605cc"
+          }
+        },
+        {
+          "client_id": "1016858913249-n3ao0k7g9vmi9g4mj6v3km04rmc01hqh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASHm3AWA_4nw_vQ1Uiov8Ml34pbhK3KdA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016858913249-n3ao0k7g9vmi9g4mj6v3km04rmc01hqh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016858913249-5uffqs1b8ati4u73qoslscehg8ngnckb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sudokuFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
