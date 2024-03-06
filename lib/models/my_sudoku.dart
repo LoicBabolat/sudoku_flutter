@@ -10,7 +10,9 @@ class MySudoku extends Equatable {
       required this.time,
       required this.difficulty,
       required this.isCompleted,
-      required this.notes});
+      required this.notes,
+      required this.isErrorIndication,
+      required this.isVisualHelp});
 
   final String sudokuId;
   final List<int> sudoku;
@@ -21,6 +23,8 @@ class MySudoku extends Equatable {
   final String difficulty;
   final bool isCompleted;
   final List<List<bool>> notes;
+  final bool isErrorIndication;
+  final bool isVisualHelp;
 
   static const empty = MySudoku(
     sudokuId: '',
@@ -32,6 +36,8 @@ class MySudoku extends Equatable {
     time: null,
     isCompleted: false,
     notes: [],
+    isErrorIndication: false,
+    isVisualHelp: true,
   );
 
   Map<String, dynamic> toMap() {
@@ -45,6 +51,8 @@ class MySudoku extends Equatable {
       'difficulty': difficulty,
       'isCompleted': isCompleted,
       'notes': notes,
+      'isErrorIndication': isErrorIndication,
+      'isVisualHelp': isVisualHelp,
     };
   }
 
@@ -59,6 +67,8 @@ class MySudoku extends Equatable {
       difficulty: map['difficulty'],
       isCompleted: map['isCompleted'],
       notes: List<List<bool>>.from(map["notes"].map((e) => List<bool>.from(e))),
+      isErrorIndication: map['isErrorIndication'],
+      isVisualHelp: map['isVisualHelp'],
     );
   }
 
@@ -72,6 +82,8 @@ class MySudoku extends Equatable {
     final String? difficulty,
     final bool? isCompleted,
     final List<List<bool>>? notes,
+    final bool? isErrorIndication,
+    final bool? isVisualHelp,
   }) {
     return MySudoku(
       sudokuId: sudokuId ?? this.sudokuId,
@@ -83,6 +95,8 @@ class MySudoku extends Equatable {
       time: time ?? this.time,
       isCompleted: isCompleted ?? this.isCompleted,
       notes: notes ?? this.notes,
+      isErrorIndication: isErrorIndication ?? this.isErrorIndication,
+      isVisualHelp: isVisualHelp ?? this.isVisualHelp,
     );
   }
 
@@ -101,7 +115,9 @@ class MySudoku extends Equatable {
       time,
       difficulty,
       isCompleted,
-      notes
+      notes,
+      isErrorIndication,
+      isVisualHelp,
     ];
   }
 }

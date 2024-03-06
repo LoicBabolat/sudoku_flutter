@@ -88,10 +88,9 @@ class _ConnexionScreen extends State<ConnexionScreen> {
           children: [
             CircleAvatar(
                 backgroundImage: NetworkImage(auth.currentUser!.photoURL)),
-            Center(
-              child: Text(
-                "${auth.currentUser!.email} est connecté",
-              ),
+            Text(
+              "${auth.currentUser!.email} est connecté",
+              textAlign: TextAlign.center,
             ),
             ButtonTextUI.red(
                 text: "Se déconnecter",
@@ -113,11 +112,6 @@ class _ConnexionScreen extends State<ConnexionScreen> {
                         .setLoading(false);
                   });
                 }),
-            ButtonTextUI(
-                onPressed: () {
-                  GoRouter.of(context).go('/create_sudoku');
-                },
-                text: "Go to Create Sudoku"),
           ],
         );
       }),

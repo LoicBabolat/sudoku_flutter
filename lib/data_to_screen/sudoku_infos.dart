@@ -8,27 +8,33 @@ class SudokuInfos extends ChangeNotifier {
   final FirebaseDataSudoku _fireBaseDataSudoku;
   MySudoku sudoku = MySudoku.empty;
   int selectedSquare = -1;
+  int selectedRow = -1;
+  int selectedColumn = -1;
 
   SudokuInfos(
       {FirebaseDataSudoku? fireBaseDataSudoku,
       FirebaseDataUser? fireBaseDataUser})
       : _fireBaseDataSudoku = fireBaseDataSudoku ?? FirebaseDataSudoku();
 
-  static Future<String> createSudoku(String difficulty, String userId) async {
+  static Future<String> createSudoku(String difficulty, String userId,
+      bool isErrorIndication, bool isVisualHelp) async {
     final FirebaseDataSudoku firebaseSudoku = FirebaseDataSudoku();
     final FirebaseDataUser firebaseUser = FirebaseDataUser();
     final Map<String, dynamic> sudokuParams = generateSudokuParams(difficulty);
     String? sudokuId = await firebaseSudoku.createSudoku(MySudoku(
-        sudokuId: "",
-        sudoku: sudokuParams["sudoku"],
-        initSudoku: sudokuParams["initSudoku"],
-        solution: sudokuParams["solution"],
-        userId: userId,
-        time: null,
-        difficulty: difficulty,
-        isCompleted: false,
-        notes: List<List<bool>>.from(sudokuParams["sudoku"]
-            .map((e) => List.generate(9, (_) => false)))));
+      sudokuId: "",
+      sudoku: sudokuParams["sudoku"],
+      initSudoku: sudokuParams["initSudoku"],
+      solution: sudokuParams["solution"],
+      userId: userId,
+      time: null,
+      difficulty: difficulty,
+      isCompleted: false,
+      notes: List<List<bool>>.from(
+          sudokuParams["sudoku"].map((e) => List.generate(9, (_) => false))),
+      isErrorIndication: isErrorIndication,
+      isVisualHelp: isVisualHelp,
+    ));
 
     if (sudokuId != null) {
       await firebaseUser.addUserSudoku(userId, sudokuId);
@@ -50,12 +56,16 @@ class SudokuInfos extends ChangeNotifier {
     return sudoku;
   }
 
-  void setSelectedSquare(int square) {
+  void setSelectedSquare(int square, int row, int column) {
     if (sudoku.initSudoku[square] == -1 && square != selectedSquare) {
       selectedSquare = square;
+      selectedRow = row;
+      selectedColumn = column;
       notifyListeners();
     } else if (selectedSquare == square) {
       selectedSquare = -1;
+      selectedRow = -1;
+      selectedColumn = -1;
       notifyListeners();
     }
   }

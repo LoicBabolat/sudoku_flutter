@@ -47,7 +47,6 @@ class _SudokuScreenState extends State<SudokuScreen> {
               .setSudoku(widget.sudokuId);
           Provider.of<Auth>(context, listen: false)
               .chgeLastSudoku(widget.sudokuId!);
-          Provider.of<SudokuInfos>(context, listen: false);
           return Stack(children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,22 +56,23 @@ class _SudokuScreenState extends State<SudokuScreen> {
                 const SudokuNumPad(),
               ],
             ),
-            if (Provider.of<SudokuInfos>(context, listen: false)
-                    .getSudoku()
-                    .isCompleted &&
-                !isModalClosed) ...[
-              ModalUI(
-                  textModal: "Sudoku Complété !!!",
-                  buttonText: "Nouveau Sudoku",
-                  closeFunction: () {
-                    setState(() {
-                      isModalClosed = true;
+            Consumer<SudokuInfos>(builder: (context, sudoku, child) {
+              if (sudoku.getSudoku().isCompleted && !isModalClosed) {
+                return ModalUI(
+                    textModal: "Sudoku Complété !!!",
+                    buttonText: "Nouveau Sudoku",
+                    closeFunction: () {
+                      setState(() {
+                        isModalClosed = true;
+                      });
+                    },
+                    bottomButonFunction: () {
+                      context.go("/create_sudoku");
                     });
-                  },
-                  bottomButonFunction: () {
-                    context.go("/create_sudoku");
-                  })
-            ]
+              } else {
+                return const SizedBox();
+              }
+            })
           ]);
         });
   }

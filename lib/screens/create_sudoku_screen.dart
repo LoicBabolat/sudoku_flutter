@@ -19,13 +19,16 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
   List<String> difficultyChoices = ["Facile", "Medium", "Difficile", "Expert"];
 
   String errorIndicationCurrent = "Sans indication des erreurs";
-  List<String> errorIndicationChoices = [
-    "Sans indication des erreurs",
-    "Avec indication des erreurs"
-  ];
+  Map<String, bool> errorIndicationMap = {
+    "Sans indication des erreurs": false,
+    "Avec indication des erreurs": true
+  };
 
   String visuelHelpCurrent = "Avec aide visuelle";
-  List<String> visuelHelpChoices = ["Avec aide visuelle", "Sans aide visuelle"];
+  Map<String, bool> visuelHelpMap = {
+    "Avec aide visuelle": true,
+    "Sans aide visuelle": false
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
               height: 15,
             ),
             DropdownButtonUI(
-                choices: errorIndicationChoices,
+                choices: errorIndicationMap.keys.toList(),
                 currentValue: errorIndicationCurrent,
                 onChanged: (String value) {
                   setState(() {
@@ -58,7 +61,7 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
               height: 15,
             ),
             DropdownButtonUI(
-                choices: visuelHelpChoices,
+                choices: visuelHelpMap.keys.toList(),
                 currentValue: visuelHelpCurrent,
                 onChanged: (String value) {
                   setState(() {
@@ -74,7 +77,9 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
                         difficultyCurrent,
                         Provider.of<Auth>(context, listen: false)
                             .currentUser!
-                            .uid)
+                            .uid,
+                        errorIndicationMap[errorIndicationCurrent]!,
+                        visuelHelpMap[visuelHelpCurrent]!)
                     .then((value) {
                   //Provider.of<IsLoading>(context, listen: false).setLoading(true);
                   context.go('/create_sudoku/sudoku/$value');
@@ -94,12 +99,12 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
             //     children: testAllSudokus(context),
             //   ),
             // )
-            ButtonTextUI(
-              onPressed: () {
-                SudokuInfos.deleteAllSudoku();
-              },
-              text: 'Delete All Sudoku',
-            )
+            // ButtonTextUI(
+            //   onPressed: () {
+            //     SudokuInfos.deleteAllSudoku();
+            //   },
+            //   text: 'Delete All Sudoku',
+            // )
           ],
         )),
       ],
