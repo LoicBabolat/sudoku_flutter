@@ -120,7 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .userSudokus = null;
                               setState(() {
                                 isHamburger = false;
-                                debugPrint("$isHamburger");
                               });
                             })
                       ]

@@ -70,21 +70,21 @@ class Auth extends ChangeNotifier {
             email: _googleFirebaseAuth.currentUser!.email ?? "",
             photoURL: _googleFirebaseAuth.currentUser!.photoURL ?? "",
             lastSudoku: "",
-            sudokus: [])
+            sudokus: const [])
         : MyUser.empty;
   }
 
   Future<void> chgeLastSudoku(String sudokuId) async {
     await _firebaseDataUser.chgeLastSudoku(getGoogleSignInUser().uid, sudokuId);
+    setCurrentUser();
+    notifyListeners();
   }
 
   void updateUser() {}
 
   Future<void> setAllUserSudokus() async {
     FirebaseDataSudoku fireBaseDataSudoku = FirebaseDataSudoku();
-    userSudokus = await fireBaseDataSudoku
-        .allUserSudokus(_currentUser.sudokus as List<String>);
-    debugPrint(userSudokus!.length.toString());
+    userSudokus = await fireBaseDataSudoku.allUserSudokus(_currentUser.sudokus);
     notifyListeners();
   }
 }

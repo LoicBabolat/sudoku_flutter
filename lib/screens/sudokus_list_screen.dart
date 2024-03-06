@@ -27,7 +27,9 @@ class _SudokusListScreenState extends State<SudokusListScreen> {
         if (auth.userSudokus != null) ...[
           ListSudokus(
               isFinished: widget.isFinished,
-              listSudokus: auth.userSudokus!,
+              listSudokus: auth.userSudokus!
+                  .where((element) => element.isCompleted == widget.isFinished)
+                  .toList(),
               callBack: (MySudoku sudoku) {
                 setState(() {
                   isModal = true;
@@ -40,14 +42,18 @@ class _SudokusListScreenState extends State<SudokusListScreen> {
         if (isModal && selectedSudoku.isNotEmpty) ...[
           ModalUI(
               textModal:
-                  "Cases remplies : ${fillSquare(selectedSudoku.sudoku)} / 81 \n Difficulté : ${selectedSudoku.difficulty}",
+                  "${widget.isFinished ? "Sudoku fini \n" : ""} Cases remplies : ${fillSquare(selectedSudoku.sudoku)} / 81 \n Difficulté : ${selectedSudoku.difficulty}",
               closeFunction: () {
                 setState(() {
                   isModal = false;
                 });
               },
               bottomButonFunction: () {
-                context.go("/create_sudoku/sudoku/${selectedSudoku.sudokuId}");
+                setState(() {
+                  isModal = false;
+                });
+                context.go(
+                    "/sudoku_list/${widget.isFinished}/sudoku/${selectedSudoku.sudokuId}");
               },
               buttonText: "Lancer le sudoku"),
         ]
@@ -84,15 +90,17 @@ class ListSudokus extends StatelessWidget {
                       .bodyMedium!
                       .copyWith(fontWeight: FontWeight.bold)),
               title: Text(
-                '${listSudokus[index].sudokuId}',
+                listSudokus[index].sudokuId,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             );
           });
     } else {
-      return Text(
-        "Aucun sudoku ${isFinished ? "terminé" : "en cours"}",
-        style: Theme.of(context).textTheme.bodyMedium,
+      return Center(
+        child: Text(
+          "Aucun sudoku ${isFinished ? "terminé" : "en cours"}",
+          style: Theme.of(context).textTheme.bodyMedium,
+        ),
       );
     }
   }

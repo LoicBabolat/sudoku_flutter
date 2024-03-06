@@ -84,10 +84,9 @@ final GoRouter router = GoRouter(
 class FadeTransitionPage extends CustomTransitionPage<void> {
   /// Creates a [FadeTransitionPage].
   FadeTransitionPage({
-    required LocalKey key,
-    required Widget child,
+    required LocalKey super.key,
+    required super.child,
   }) : super(
-            key: key,
             transitionsBuilder: (BuildContext context,
                     Animation<double> animation,
                     Animation<double> secondaryAnimation,
@@ -95,8 +94,7 @@ class FadeTransitionPage extends CustomTransitionPage<void> {
                 FadeTransition(
                   opacity: animation.drive(_curveTween),
                   child: child,
-                ),
-            child: child);
+                ));
 
   static final CurveTween _curveTween = CurveTween(curve: Curves.easeIn);
 }

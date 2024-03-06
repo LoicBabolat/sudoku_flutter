@@ -34,8 +34,9 @@ class FirebaseDataUser {
           email: userValue["email"],
           photoURL: userValue["photoURL"],
           lastSudoku: userValue["lastSudoku"] ?? "",
-          sudokus:
-              List<String>.from(userValue["sudokus"].values.toList() ?? []));
+          sudokus: userValue["sudokus"] != null
+              ? List<String>.from(userValue["sudokus"].values.toList())
+              : []);
     } else {
       return MyUser.empty;
     }

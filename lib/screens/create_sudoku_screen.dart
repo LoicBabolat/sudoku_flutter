@@ -43,7 +43,7 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
                     difficultyCurrent = value;
                   });
                 }),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             DropdownButtonUI(
@@ -94,12 +94,12 @@ class _CreateSudokuScreenState extends State<CreateSudokuScreen> {
             //     children: testAllSudokus(context),
             //   ),
             // )
-            // ButtonTextUI(
-            //   onPressed: () {
-            //     SudokuInfos.deleteAllSudoku();
-            //   },
-            //   text: 'Delete All Sudoku',
-            // )
+            ButtonTextUI(
+              onPressed: () {
+                SudokuInfos.deleteAllSudoku();
+              },
+              text: 'Delete All Sudoku',
+            )
           ],
         )),
       ],

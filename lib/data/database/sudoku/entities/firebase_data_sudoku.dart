@@ -5,7 +5,7 @@ class FirebaseDataSudoku {
   final ref = FirebaseDatabase.instance.ref();
 
   Future<String?> createSudoku(MySudoku sudoku) async {
-    final String? newPostSudokuKey = await ref.child("sudokus").push().key;
+    final String? newPostSudokuKey = ref.child("sudokus").push().key;
     await ref
         .child("sudokus/$newPostSudokuKey")
         .set(sudoku.copyWith(sudokuId: newPostSudokuKey!).toMap());

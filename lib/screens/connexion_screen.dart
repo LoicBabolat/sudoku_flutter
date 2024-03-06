@@ -88,7 +88,11 @@ class _ConnexionScreen extends State<ConnexionScreen> {
           children: [
             CircleAvatar(
                 backgroundImage: NetworkImage(auth.currentUser!.photoURL)),
-            Text("${auth.currentUser!.email} est connecté"),
+            Center(
+              child: Text(
+                "${auth.currentUser!.email} est connecté",
+              ),
+            ),
             ButtonTextUI.red(
                 text: "Se déconnecter",
                 onPressed: () {

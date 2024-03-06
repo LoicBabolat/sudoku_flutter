@@ -19,16 +19,21 @@ class Hamburger extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            HamburgerTile(
-                firstLine: "REPRENDRE",
-                secondLine: "SUDOKU",
-                onTap: () {
-                  router.go(
-                      "/create_sudoku/sudoku/${Provider.of<Auth>(context, listen: false).currentUser!.lastSudoku}");
-                  closeBurger();
-                },
-                color: Theme.of(context).colorScheme.background,
-                textColor: Colors.black),
+            if (Provider.of<Auth>(context, listen: false)
+                    .currentUser!
+                    .lastSudoku !=
+                "") ...[
+              HamburgerTile(
+                  firstLine: "REPRENDRE",
+                  secondLine: "SUDOKU",
+                  onTap: () {
+                    router.go(
+                        "/create_sudoku/sudoku/${Provider.of<Auth>(context, listen: false).currentUser!.lastSudoku}");
+                    closeBurger();
+                  },
+                  color: Theme.of(context).colorScheme.background,
+                  textColor: Colors.black),
+            ],
             HamburgerTile(
               firstLine: "NOUVEAU",
               secondLine: "SUDOKU",

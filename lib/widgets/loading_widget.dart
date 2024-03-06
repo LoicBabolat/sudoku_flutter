@@ -52,7 +52,6 @@ class IsLoading extends ChangeNotifier {
 
   void setIsModalClosed(bool value) {
     isModalClosed = value;
-    debugPrint("isModalClosed: $isModalClosed");
     notifyListeners();
   }
 }

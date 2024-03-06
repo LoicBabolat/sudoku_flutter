@@ -107,7 +107,7 @@ class InputNumber extends StatelessWidget {
           color:
               sudokuInstance.sudoku[index] == sudokuInstance.initSudoku[index]
                   ? Colors.black
-                  : Color.fromARGB(255, 48, 56, 232),
+                  : const Color.fromARGB(255, 48, 56, 232),
           fontSize: 23.0),
     );
   }

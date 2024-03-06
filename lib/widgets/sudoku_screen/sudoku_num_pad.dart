@@ -19,7 +19,7 @@ class _SudokuNumPadState extends State<SudokuNumPad> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.30 - kToolbarHeight,
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: Colors.black, width: 3.5)),
+        border: const Border(top: BorderSide(color: Colors.black, width: 3.5)),
         color: Theme.of(context).colorScheme.primary,
       ),
       child: Column(
@@ -60,7 +60,6 @@ class _SudokuNumPadState extends State<SudokuNumPad> {
                         } else {
                           null;
                         }
-                        ;
                       },
                       text: "Vider");
                 }),
