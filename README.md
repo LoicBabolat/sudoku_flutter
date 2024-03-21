@@ -12,10 +12,10 @@ Pour ce qui est de la base de données, j'ai utilisé Firebase qui était la tec
 
 Ce projet n'est pas encore complètement fini et sera sûrement encore modifié prochainement, pour rendre l'utilisation plus agréable, améliorer le style ou ajouter des données côté client pour pouvoir jouer aux sudokus sans connexion.
 
-##Design
+## Design
 
-Pour le design j'ai réalisé un [Figma ]([https://example.com](https://www.figma.com/file/zre5sXnjN9SroKgoZGbt4o/Sudoku?type=design&node-id=3%3A7&mode=design&t=fOT8ljuuGzaFAXPK-1)https://www.figma.com/file/zre5sXnjN9SroKgoZGbt4o/Sudoku?type=design&node-id=3%3A7&mode=design&t=fOT8ljuuGzaFAXPK-1):, dans celui-ci j'ai réalisé les maquettes mais aussi l'organisation du projet. Il a certaines maquettes que j'ai au final modifié dans l'application et d'autres que je n'ai pas encore réalisées.
+Pour le design j'ai réalisé un [Figma ](https://www.figma.com/file/zre5sXnjN9SroKgoZGbt4o/Sudoku?type=design&node-id=3%3A7&mode=design&t=fOT8ljuuGzaFAXPK-1), dans celui-ci j'ai réalisé les maquettes mais aussi l'organisation du projet. Il a certaines maquettes que j'ai au final modifié dans l'application et d'autres que je n'ai pas encore réalisées.
 
-##Lien apk téléchargeable
+## Lien apk téléchargeable
 
-Voici un lien vers un apk de l'application : [apk]([https://drive.google.com/drive/folders/1JY_qdt7YhzqDq8lT9Qtu1MXPlfPGtpPH?usp=sharing]):
+Voici un lien vers un apk de l'application : [APK](https://drive.google.com/drive/folders/1JY_qdt7YhzqDq8lT9Qtu1MXPlfPGtpPH?usp=sharing)
