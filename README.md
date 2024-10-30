@@ -14,7 +14,7 @@ Ce projet n'est pas encore complètement fini et sera sûrement encore modifié 
 
 ## Design
 
-Pour le design j'ai réalisé un [Figma ](https://www.figma.com/file/zre5sXnjN9SroKgoZGbt4o/Sudoku?type=design&node-id=3%3A7&mode=design&t=fOT8ljuuGzaFAXPK-1), dans celui-ci j'ai réalisé les maquettes mais aussi l'organisation du projet. Il a certaines maquettes que j'ai au final modifié dans l'application et d'autres que je n'ai pas encore réalisées.
+Pour le design j'ai réalisé un [Figma ](https://www.figma.com/file/zre5sXnjN9SroKgoZGbt4o/Sudoku?type=design&node-id=3%3A7&mode=design&t=fOT8ljuuGzaFAXPK-1), dans celui-ci j'ai réalisé les maquettes mais aussi l'organisation du projet. Il y a certaines maquettes que j'ai au final modifié dans l'application et d'autres que je n'ai pas encore réalisées.
 
 ## Lien apk téléchargeable
 
