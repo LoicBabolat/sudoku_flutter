@@ -18,5 +18,5 @@ Pour le design j'ai réalisé un [Figma ](https://www.figma.com/file/zre5sXnjN9S
 
 ## Lien apk téléchargeable
 
-Voici un lien vers un apk de l'application : [APK](https://drive.google.com/drive/folders/1JY_qdt7YhzqDq8lT9Qtu1MXPlfPGtpPH?usp=sharing)
-De plus, une vidéo explicative est disponible sur mon site Internet au lien suivant : [babolat-loic.fr/#flutterSudoku](https://babolat-loic.fr/#flutterSudoku)
+Voici un lien vers un apk de l'application : [APK](https://drive.google.com/drive/folders/1JY_qdt7YhzqDq8lT9Qtu1MXPlfPGtpPH?usp=sharing).
+De plus, une vidéo explicative est disponible sur mon site Internet au lien suivant : [babolat-loic.fr/#flutterSudoku](https://babolat-loic.fr/#flutterSudoku).
